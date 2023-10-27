@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar</title>
+</head>
+    <body>
+        <header>
+            <h1>Bem-vindo à sua agenda virtual!</h1>
+        </header>
+
+        <h1>Cadastro de contato</h1>
+
+        <form id="register">
+            <section id="data">
+                <label for="name"><b>Nome</b></label><br>
+                <input id="name" name="nameContact" type="text" placeholder="Digite o nome..." maxlength="14" size="32">
+                <br><br>
+                <label for="email"><b>Email</b></label><br>
+                <input id="email" name="emailContact" type="email" placeholder="Digite o email..." size="32">
+                <br><br>
+                <label for="tel"><b>Telefone</b></label><br>
+                <input id="tel" name="telContact" type="tel" placeholder="Digite o telefone..." maxlength="14" minlength="14" size="32">
+            </section><br>
+
+            <div class="error"></div>
+
+            <input id="btn-log" name="btnLogin" type="button" value="Entrar">
+        </form>
+    </body>
+</html>
