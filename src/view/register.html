@@ -3,32 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar</title>
+    <link rel="stylesheet" href="style.css">
     <script src="../script/register.js"></script>
     <script src="../script/dataManipulation.js"></script>
 </head>
-    <body>
-        <header>
-            <h1>Bem-vindo à sua agenda virtual!</h1>
-        </header>
+<body>
+    <header>
+        <h1>Bem-vindo à sua agenda virtual!</h1>
+    </header>
 
-        <h1>Cadastro de contato</h1>
-
+    <div id="form">
         <form id="register">
-            <section id="data">
-                <label for="name"><b>Nome</b></label><br>
-                <input id="name" name="nameContact" type="text" placeholder="Digite o nome..." maxlength="14" size="32">
-                <br><br>
-                <label for="email"><b>Email</b></label><br>
-                <input id="email" name="emailContact" type="email" placeholder="Digite o email..." size="32">
-                <br><br>
-                <label for="tel"><b>Telefone</b></label><br>
-                <input id="tel" name="telContact" type="tel" placeholder="Digite o telefone..." maxlength="14" minlength="14" size="32">
-            </section><br>
+            <h2>Cadastro de contato</h2>
+
+            <label for="name"><b>Nome</b></label><br>
+            <input id="name" name="nameContact" type="text" placeholder="Digite o nome..." maxlength="14" size="32">
+            <br><br>
+            <label for="email"><b>Email</b></label><br>
+            <input id="email" name="emailContact" type="email" placeholder="Digite o email..." size="32">
+            <br><br>
+            <label for="tel"><b>Telefone</b></label><br>
+            <input id="tel" name="telContact" type="tel" placeholder="Digite o telefone..." maxlength="14" minlength="14" size="32">
+            <br>
 
             <div class="error"></div>
 
-            <button id="btnRegister" type="submit" onclick="saveContact()">Salvar</button>
-            <button id="btnManipulation" type="submit" onclick="showContacts()">Ver contatos</button>
+            <input id="btnManipulation" type="submit" onclick="showContacts()" value="Ver contatos">
+            <input id="btnRegister" type="submit" onclick="saveContact()" value="Salvar">
+
+            <a href="dataManipulation.html">ge</a>
         </form>
-    </body>
+    </div>
+</body>
 </html>
