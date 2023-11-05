@@ -1,13 +1,22 @@
 *{
-    font-family: Constantia;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body{
-    background-image: url("../img/agenda.jpg");
+    
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 20px;
     padding: 70px;
+}
+
+header {
+    background-image: url("../assets/agenda.jpg");
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 150px;
+    position: fixed;
 }
 
 form{
