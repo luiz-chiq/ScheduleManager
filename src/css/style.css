@@ -1,11 +1,10 @@
-
-body{    
+body {
     width: 600px;
     margin: auto;
     font-size: 1rem;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     min-height: 200px;
-    
+
 }
 
 header {
@@ -21,26 +20,26 @@ header {
     border: 1px solid lightgrey;
 }
 
-h2{
+h2 {
     padding: 15px 0;
     text-align: center;
-} 
+}
 
 h3 {
     padding: 10px;
     text-align: center;
 }
 
-#nav{
+#nav {
     width: 20px;
     height: 20px;
     border: 1px solid lightgray;
     border-radius: 100%;
     position: fixed;
-    top:75px;
+    top: 75px;
     text-align: center;
     margin-left: 20px;
-    padding:5px;
+    padding: 5px;
     line-height: 18px;
     font-size: 1.4rem;
     text-decoration: none;
@@ -56,18 +55,18 @@ h3 {
 }
 
 #search-bar {
-    position:fixed;
+    position: fixed;
     z-index: 1;
     width: 300px;
     margin-left: 150px;
-    top:66px;
+    top: 66px;
     padding: 5px 20px;
     box-sizing: border-box;
     font-size: 0.8rem;
 }
 
 main {
-    background-color:rgba(245, 245, 245, 0.8);
+    background-color: rgba(245, 245, 245, 0.8);
     width: 600px;
     margin: 119px auto;
     min-height: 120px;
@@ -79,18 +78,18 @@ main {
 .item {
     padding: 5px 20px;
     border: 1px solid gray;
-    width:85%;
+    width: 85%;
     margin: 20px auto;
     border-radius: 20px;
 }
 
-form{
+form {
     width: 90%;
     margin: 10px auto;
     padding: 10px;
- }
+}
 
- .del-btn {
+.del-btn {
     font-size: 0.7rem;
     padding: 5px;
     margin: 10px auto;
@@ -98,9 +97,9 @@ form{
     color: red;
     border: 1px solid red;
     border-radius: 5px;
- }
+}
 
- .edit-btn {
+.edit-btn {
     font-size: 0.7rem;
     padding: 5px;
     margin: 10px auto;
@@ -108,9 +107,9 @@ form{
     color: green;
     border: 1px solid green;
     border-radius: 5px;
- }
- 
- input[type="submit"]{
+}
+
+input[type="submit"] {
     font-size: 1rem;
     padding: 10px;
     margin: 15px auto;
@@ -118,28 +117,35 @@ form{
     color: rgba(245, 245, 245, 0.8);
     border: 1px solid lightgray;
     border-radius: 5px;
- }
+}
 
- input[type="submit"]:hover, .edit-btn:hover, .del-btn:hover {
+input[type="submit"]:hover,
+.edit-btn:hover,
+.del-btn:hover {
     background-color: rgba(245, 245, 245, 0.8);
     color: #333;
     border: 1px solid #333;
- }
- 
- input[type="text"]{
+}
+
+input[type="text"] {
     width: 100%;
     padding: 12px 20px;
     margin: 10px 0;
     box-sizing: border-box;
     font-size: 1rem;
- }
+}
 
- 
- 
- 
- 
- 
- 
- 
- 
+@media (max-width: 599px) {
 
+    body,
+    header,
+    main {
+        width: 100%;
+    }
+
+    #search-bar {
+        width: 70%;
+        margin-left: 15%;
+    }
+
+}
