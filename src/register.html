@@ -1,36 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <title>Cadastrar</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="../script/register.js"></script>
-    <script src="../script/dataManipulation.js"></script>
+    <title>Agenda de contatos</title>
+    <link rel="stylesheet" href="css/style.css" />
+
 </head>
+
 <body>
     <header>
-        <h1>Bem-vindo à sua agenda virtual!</h1>
+        <h2>Agenda de contatos</h2>
     </header>
+    <a id="nav" href="index.html">=</a>
+    <main>
+        <h3>Cadastro de contato</h3>
+        <form>
 
-    <div id="form">
-        <form id="register">
-            <h2>Cadastro de contato</h2>
+            <label for="name">Nome: </label>
+            <input id="name" name="nameContact" type="text" placeholder="Nome">
 
-            <label for="name"><b>Nome</b></label><br>
-            <input id="name" name="nameContact" type="text" placeholder="Digite o nome..." maxlength="14" size="32">
-            <br><br>
-            <label for="email"><b>Email</b></label><br>
-            <input id="email" name="emailContact" type="email" placeholder="Digite o email..." size="32">
-            <br><br>
-            <label for="tel"><b>Telefone</b></label><br>
-            <input id="tel" name="telContact" type="tel" placeholder="Digite o telefone..." maxlength="14" minlength="14" size="32">
-            <br>
+            <label for="email">Email: </label>
+            <input id="email" name="emailContact" type="text" placeholder="E-mail">
 
-            <div class="error"></div>
+            <label for="phone">Telefone:</label>
+            <input id="phone" name="phoneContact" type="text" placeholder="99999999">
 
-            <input id="btnManipulation" type="submit" onclick="showContacts()" value="Ver contatos">
-            <input id="btnRegister" type="submit" onclick="saveContact()" value="Salvar">
+            <input type="submit" value="Salvar">
         </form>
-    </div>
+    </main>
 </body>
+
 </html>
