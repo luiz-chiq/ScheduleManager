@@ -44,7 +44,9 @@ window.addEventListener('load', () => {
     function save() {
         try {
             const dataObj = getFormData()
-            localStorage.setItem(localStorage.length.toString(), JSON.stringify(dataObj));
+            let id = Number(localStorage.getItem("idCount")) + 1; 
+            localStorage.setItem(id, JSON.stringify(dataObj));
+            localStorage.setItem("idCount", id.toString())
             clearForm();
             alert("Contato salvo com sucesso!")
         } catch (error) {

@@ -3,7 +3,8 @@ window.addEventListener("load", () => {
     function initDataStorageIfEmpty() {
         if(localStorage.length != 0) return;
         localStorage.clear();
-        localStorage.setItem("selectedId","0")
+        localStorage.setItem("selectedId","0");
+        localStorage.setItem("idCount", "4");
         const data = [
             {
                 name : "Maria da Silva",
@@ -59,12 +60,11 @@ window.addEventListener("load", () => {
 
     function populate() {
         let key = 1;
-        while (key < localStorage.length) {
+        while (key < localStorage.length-1) {
             createItem(key, JSON.parse(localStorage.getItem(key.toString())));
             key++;
         }
-    }      
-    
+    }  
 
     if (typeof Storage !== "undefined") {
         initDataStorageIfEmpty();
