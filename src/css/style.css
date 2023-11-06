@@ -92,7 +92,7 @@ form {
 .del-btn {
     font-size: 0.7rem;
     padding: 5px;
-    margin: 10px auto;
+    margin: 10px 0;
     background-color: rgb(235, 161, 161);
     color: red;
     border: 1px solid red;
@@ -102,7 +102,7 @@ form {
 .edit-btn {
     font-size: 0.7rem;
     padding: 5px;
-    margin: 10px auto;
+    margin: 10px;
     background-color: lightgreen;
     color: green;
     border: 1px solid green;
@@ -133,6 +133,12 @@ input[type="text"] {
     margin: 10px 0;
     box-sizing: border-box;
     font-size: 1rem;
+    outline: none;
+}
+
+.error {
+    border: 1px solid red;
+    background-color: rgb(235, 161, 161);
 }
 
 @media (max-width: 599px) {
