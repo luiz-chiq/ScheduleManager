@@ -1,35 +1,36 @@
 window.addEventListener("load", () => {
-    const mainEl = document.querySelector("main");
+    const contacts = document.getElementById("contacts");
     function initDataStorageIfEmpty() {
-        if(localStorage.length != 0) return;
+        if (localStorage.length > 2) return;
         localStorage.clear();
-        localStorage.setItem("selectedId","0");
+        localStorage.setItem("selectedId", "0");
         localStorage.setItem("idCount", "4");
         const data = [
             {
-                name : "Maria da Silva",
+                name: "Maria da Silva",
                 email: "maria.silva@email.com",
                 phone: "+551699999999"
             },
             {
-                name : "José da Carvalho",
+                name: "José da Carvalho",
                 email: "jose.carvalho@email.com",
                 phone: "+551699999991"
             },
             {
-                name : "Luiz Silveira",
+                name: "Luiz Silveira",
                 email: "luiz.silveira@email.com",
                 phone: "+551699999992"
             },
             {
-                name : "Josefa Pereira",
+                name: "Josefa Pereira",
                 email: "josefa.pereira@email.com",
                 phone: "+551699999993"
             }
 
         ]
-        data.forEach((item, index) => localStorage.setItem((index+1).toString(), JSON.stringify(item)));
+        data.forEach((item, index) => localStorage.setItem((index + 1).toString(), JSON.stringify(item)));
     }
+
 
     function createItem(key, dataObj) {
         const container = document.createElement("div");
@@ -41,6 +42,16 @@ window.addEventListener("load", () => {
         const editBtn = document.createElement("button");
         delBtn.innerText = "Deletar";
         delBtn.classList.add("del-btn");
+        delBtn.addEventListener("click", (e) => {
+            const id = e.target.parentNode.id.toString();
+            const check = confirm(`Tem certeza que quer deletar o contato de ${dataObj.name}`)
+            if (check) {
+                localStorage.removeItem(id)
+                alert(`O contato de ${dataObj.name} foi deletado com sucesso!`)
+                populate();
+            };
+
+        })
         editBtn.innerText = "Editar";
         editBtn.classList.add("edit-btn");
         container.classList.add("item");
@@ -55,16 +66,22 @@ window.addEventListener("load", () => {
         container.append(p3);
         container.append(editBtn);
         container.append(delBtn);
-        mainEl.append(container);
+        contacts.append(container);
     }
 
     function populate() {
-        let key = 1;
-        while (key < localStorage.length-1) {
-            createItem(key, JSON.parse(localStorage.getItem(key.toString())));
-            key++;
-        }
-    }  
+        contacts.innerHTML = "";
+        const keys = Object.keys(localStorage);
+        console.log(keys)
+        keys.forEach(key => {
+            const num = Number.parseInt(key);
+            if(typeof num == "number" && !isNaN(num)) {
+                console.log(Number.parseInt(key))
+                const data = localStorage.getItem(key.toString());
+                createItem(key, JSON.parse(data));
+            }
+        });
+    }
 
     if (typeof Storage !== "undefined") {
         initDataStorageIfEmpty();
