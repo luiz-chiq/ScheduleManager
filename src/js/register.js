@@ -31,9 +31,9 @@ window.addEventListener('load', () => {
     }
 
     function getFormData() {
-        if (!checkNameInput()) throw new Error("Name input is an invalid value!");
-        if (!checkEmailInput()) throw new Error("Email input is an invalid value!");
-        if (!checkPhoneInput()) throw new Error("Phone input is an invalid value!");
+        if (!checkNameInput()) throw new Error("Nome inválido!");
+        if (!checkEmailInput()) throw new Error("Email inválido!");
+        if (!checkPhoneInput()) throw new Error("Telefone inválido!");
         return {
             name: nameEl.value,
             email: emailEl.value,
@@ -46,8 +46,10 @@ window.addEventListener('load', () => {
             const dataObj = getFormData()
             localStorage.setItem(localStorage.length.toString(), JSON.stringify(dataObj));
             clearForm();
+            alert("Contato salvo com sucesso!")
         } catch (error) {
             console.log(error);
+            alert(error.message)
         }
     }
 
