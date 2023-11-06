@@ -1,5 +1,6 @@
 window.addEventListener("load", () => {
     const contacts = document.getElementById("contacts");
+    const searchBar = document.getElementById("search-bar")
     function initDataStorageIfEmpty() {
         if (localStorage.length > 2) return;
         localStorage.clear();
@@ -31,6 +32,16 @@ window.addEventListener("load", () => {
         data.forEach((item, index) => localStorage.setItem((index + 1).toString(), JSON.stringify(item)));
     }
 
+    searchBar.addEventListener("input", (e) => {
+        const allContactsEl = document.querySelectorAll(".item");
+        for (let el of allContactsEl) {
+            el.classList.add("hide");
+        }
+        for (let el of allContactsEl) {
+            const name = el.querySelector("span").innerText;
+            if(name.toLowerCase().includes(e.target.value.toLowerCase())) el.classList.remove("hide")
+        }
+    })
 
     function createItem(key, dataObj) {
         const container = document.createElement("div");
@@ -54,6 +65,11 @@ window.addEventListener("load", () => {
         })
         editBtn.innerText = "Editar";
         editBtn.classList.add("edit-btn");
+        editBtn.addEventListener("click", (e) => {
+            const id = e.target.parentNode.id.toString();
+            localStorage.setItem("selectedId", id.toString());
+            window.open("edit.html", "_self");
+        });
         container.classList.add("item");
         container.setAttribute("id", key.toString());
         span.innerText = dataObj.name;
@@ -82,6 +98,8 @@ window.addEventListener("load", () => {
             }
         });
     }
+
+   
 
     if (typeof Storage !== "undefined") {
         initDataStorageIfEmpty();
