@@ -46,12 +46,12 @@ window.addEventListener('load', () => {
             const dataObj = getFormData()
             let id = Number(localStorage.getItem("idCount")) + 1; 
             localStorage.setItem(id, JSON.stringify(dataObj));
-            localStorage.setItem("idCount", id.toString())
+            localStorage.setItem("idCount", id.toString());
             clearForm();
-            alert("Contato salvo com sucesso!")
+            alert("Contato salvo com sucesso!");
         } catch (error) {
-            console.log(error);
-            alert(error.message)
+            console.error(error);
+            alert(error.message);
         }
     }
 
