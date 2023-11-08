@@ -1,0 +1,19 @@
+# Arquivos e diretórios gerados pelo IntelliJ IDEA dentro do diretório "testeSelenium"
+testeSelenium/.idea/
+
+# Diretórios de saída de compilação e arquivos de classe específicos ao diretório "testeSelenium"
+testeSelenium/out/
+testeSelenium/target/
+
+# Diretórios de dependências gerados pelo Maven dentro do diretório "testeSelenium"
+testeSelenium/.idea_modules/
+testeSelenium/*.iml
+testeSelenium/*.iws
+testeSelenium/*.ipr
+
+# Logs e arquivos temporários específicos ao diretório "testeSelenium"
+testeSelenium/*.log
+testeSelenium/*.log.*
+testeSelenium/*.tmp
+
+# Outros arquivos e diretórios específicos ao diretório "testeSelenium", como arquivos de configuração personalizados
