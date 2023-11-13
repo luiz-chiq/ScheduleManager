@@ -1,6 +1,9 @@
 package pages;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+
+import static org.junit.Assert.assertThat;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -18,4 +21,11 @@ public class RegisterPageTest {
         Thread.sleep(1000);
         driver.quit();
     }
+    @Test
+    @DisplayName("Should register a new contact with name, email and phone completed")
+     public void registerContact() {
+    SignInPage signInPage = new SignInPage(driver);
+    HomePage homePage = signInPage.loginValidUser("userName", "password");
+    assertThat(homePage.getMessageText(), is("Hello userName"));
+  }
 }
