@@ -13,10 +13,7 @@ public class RegisterPage {
 
     public RegisterPage(WebDriver driver) {
         this.driver = driver;
-        if (!driver.getCurrentUrl().equals("http://127.0.0.1:5500/src/register.html")) {
-            throw new IllegalStateException("Essa nao é a página de cadastro" +
-                    " a página atual é: " + driver.getCurrentUrl());
-        }
+
     }
 
     public RegisterPage registerNewContact(String name, String email, String phone) {

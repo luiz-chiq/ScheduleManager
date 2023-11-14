@@ -21,15 +21,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RegisterPageTest {
     private WebDriver driver;
+
     @BeforeEach
-    void setUp(){
+    void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new FirefoxDriver();
     }
+
     @AfterEach
-    void tearDown(){
+    void tearDown() {
         driver.quit();
     }
+
     @Test
     @DisplayName("Should open and close firefox browser")
     void shouldOpenAndCloseChromeBrowser() throws InterruptedException {
@@ -43,18 +46,25 @@ public class RegisterPageTest {
     @Test
     @DisplayName("Should register a new contact with name, email and phone completed")
     public void registerContact() {
+        driver.get("http://127.0.0.1:5500/src/register.html");
+
         Faker faker = new Faker();
 
         String name = faker.name().fullName();
-        String phone = faker.phoneNumber().toString();
+        String phone = "+5516992588088";
         String email = faker.internet().emailAddress();
 
         RegisterPage registerPage = new RegisterPage(driver);
-        registerPage.registerNewContact(name,email,phone);
-        final Alert alert = new WebDriverWait(driver, Duration.ofSeconds(10))
+        registerPage.registerNewContact(name, email, phone);
+
+        new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.alertIsPresent());
-        final String alertText = alert.getText();
+
+        Alert alert = driver.switchTo().alert();
+        String alertText = alert.getText();
+        System.out.println(alertText);
         alert.accept();
+
         assertEquals("Contato salvo com sucesso!", alertText);
     }
 }
