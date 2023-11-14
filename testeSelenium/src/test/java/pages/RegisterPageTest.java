@@ -67,4 +67,29 @@ public class RegisterPageTest {
 
         assertEquals("Contato salvo com sucesso!", alertText);
     }
+
+    @Test
+    @DisplayName("Should not register a new contact with name, email but no phone number")
+    public void registerContactWithoutPhoneNumber() {
+        driver.get("http://127.0.0.1:5500/src/register.html");
+
+        Faker faker = new Faker();
+
+        String name = faker.name().fullName();
+        String phone = "";
+        String email = faker.internet().emailAddress();
+
+        RegisterPage registerPage = new RegisterPage(driver);
+        registerPage.registerNewContact(name, email, phone);
+
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.alertIsPresent());
+
+        Alert alert = driver.switchTo().alert();
+        String alertText = alert.getText();
+        System.out.println(alertText);
+        alert.accept();
+
+        assertEquals("Telefone inválido!", alertText);
+    }
 }
