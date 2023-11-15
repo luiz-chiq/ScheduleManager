@@ -92,4 +92,29 @@ public class RegisterPageTest {
 
         assertEquals("Telefone inválido!", alertText);
     }
+
+    @Test
+    @DisplayName("Should not register a new contact with a one letter name")
+    public void registerContactWithOneLetterName() {
+        driver.get("http://127.0.0.1:5500/src/register.html");
+
+        Faker faker = new Faker();
+
+        String name = "N";
+        String phone = "+5516992588088";
+        String email = faker.internet().emailAddress();
+
+        RegisterPage registerPage = new RegisterPage(driver);
+        registerPage.registerNewContact(name, email, phone);
+
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.alertIsPresent());
+
+        Alert alert = driver.switchTo().alert();
+        String alertText = alert.getText();
+        System.out.println(alertText);
+        alert.accept();
+
+        assertEquals("Nome inválido!", alertText);
+    }
 }
