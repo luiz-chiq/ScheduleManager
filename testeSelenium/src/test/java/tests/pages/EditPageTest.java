@@ -147,30 +147,31 @@ public class EditPageTest {
         }
     }
 
+    @Nested
+    @DisplayName("Phone Validation Tests")
+    class PhoneValidationTests {
+        @Test
+        @DisplayName("Should alert an error as phone is not in correct format")
+        public void editContactWithIncorrectPhoneFormat() {
+            openIndexAndClickEdit();
+
+            Faker faker = new Faker();
+            EditPage editPage = new EditPage(driver);
+
+            String name = faker.name().fullName();
+            String phone = "+55992841";
+            String email = faker.internet().emailAddress();
 
 
-    @Test
-    @DisplayName("Should alert an error as phone is not in correct format")
-    public void editContactWithIncorrectPhoneFormat() {
-        openIndexAndClickEdit();
+            editPage.editContact(name, email, phone);
 
-        Faker faker = new Faker();
-        EditPage editPage = new EditPage(driver);
+            Alert alert = driver.switchTo().alert();
+            String alertText = alert.getText();
+            System.out.println(alertText);
+            alert.accept();
 
-        String name = faker.name().fullName();
-        String phone = "+55992841";
-        String email = faker.internet().emailAddress();
-
-
-        editPage.editContact(name, email, phone);
-
-        Alert alert = driver.switchTo().alert();
-        String alertText = alert.getText();
-        System.out.println(alertText);
-        alert.accept();
-
-        assertEquals("Telefone inválido!", alertText);
+            assertEquals("Telefone inválido!", alertText);
+        }
     }
-
 
 }
