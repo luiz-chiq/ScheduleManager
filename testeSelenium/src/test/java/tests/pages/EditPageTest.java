@@ -267,6 +267,29 @@ public class EditPageTest {
 
             assertEquals("Telefone inválido!", alertText);
         }
+
+        @Test
+        @DisplayName("Should alert an error as phone has too many characters")
+        public void editContactWithTooLargePhoneNumber() {
+            openIndexAndClickEdit();
+
+            Faker faker = new Faker();
+            EditPage editPage = new EditPage(driver);
+
+            String name = faker.name().fullName();
+            String phone = "+559928459385674561";
+            String email = faker.internet().emailAddress();
+
+
+            editPage.editContact(name, email, phone);
+
+            Alert alert = driver.switchTo().alert();
+            String alertText = alert.getText();
+            System.out.println(alertText);
+            alert.accept();
+
+            assertEquals("Telefone inválido!", alertText);
+        }
     }
 
 }
