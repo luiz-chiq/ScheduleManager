@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b204ed1-d567-4327-82d9-508bea8adb9d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testeSelenium/src/test/java/tests/pages/EditPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/testeSelenium/src/test/java/tests/pages/EditPageTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="4b204ed1-d567-4327-82d9-508bea8adb9d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,22 +33,7 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/laura/OneDrive/Documentos/Materiais da Faculdade/5º Semestre/TC1/ScheduleManager/testeSelenium&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.EditPageTest$EmailValidationTests.editContactWithEmptyDomain">
-    <configuration name="EditPageTest$EmailValidationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="testeSelenium" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.pages.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.pages.EditPageTest" />
-      <option name="MAIN_CLASS_NAME" value="tests.pages.EditPageTest$EmailValidationTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.EditPageTest$PhoneValidationTests.editContactWithLettersInPhoneNumber">
     <configuration name="EditPageTest$EmailValidationTests.editContactWithEmptyDomain" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="testeSelenium" />
       <extension name="coverage">
@@ -115,13 +97,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EditPageTest$PhoneValidationTests.editContactWithLettersInPhoneNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="testeSelenium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.pages.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.pages.EditPageTest" />
+      <option name="MAIN_CLASS_NAME" value="tests.pages.EditPageTest$PhoneValidationTests" />
+      <option name="METHOD_NAME" value="editContactWithLettersInPhoneNumber" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EditPageTest$PhoneValidationTests.editContactWithLettersInPhoneNumber" />
         <item itemvalue="JUnit.EditPageTest$EmailValidationTests.editContactWithEmptyDomain" />
         <item itemvalue="JUnit.EditPageTest$EmailValidationTests.editContactWithSpaceOnlyEmail" />
         <item itemvalue="JUnit.EditPageTest$EmailValidationTests.editContactWithEmptyEmail" />
         <item itemvalue="JUnit.EditPageTest$PhoneValidationTests" />
-        <item itemvalue="JUnit.EditPageTest$EmailValidationTests" />
       </list>
     </recent_temporary>
   </component>
