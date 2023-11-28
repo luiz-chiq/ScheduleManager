@@ -191,6 +191,32 @@ public class EditPageTest {
 
             assertEquals("Email inválido!", alertText);
         }
+
+        @Test
+        @DisplayName("Should alert an error as email has empty domain")
+        public void editContactWithEmptyDomain() {
+            openIndexAndClickEdit();
+
+            Faker faker = new Faker();
+            EditPage editPage = new EditPage(driver);
+
+            String name = faker.name().fullName();
+            String phone = "+5516993388338";
+            String email = "testemail@.com";
+
+
+            editPage.editContact(name, email, phone);
+
+            try {
+                Alert alert = new WebDriverWait(driver, Duration.ofSeconds(5))
+                        .until(ExpectedConditions.alertIsPresent());
+                String alertText = alert.getText();
+                System.out.println(alertText);
+                alert.accept();
+            } catch (TimeoutException e) {
+                fail("The expected alert error message has not been displayed.");
+            }
+        }
     }
 
     @Nested
