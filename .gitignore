@@ -17,3 +17,4 @@ testeSelenium/*.log.*
 testeSelenium/*.tmp
 
 # Outros arquivos e diretórios específicos ao diretório "testeSelenium", como arquivos de configuração personalizados
+.idea/
