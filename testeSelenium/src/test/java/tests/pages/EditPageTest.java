@@ -48,4 +48,28 @@ public class EditPageTest {
         new WebDriverWait(driver, Duration.ofSeconds(2))
                 .until(ExpectedConditions.urlToBe(EDIT_URL));
     }
+
+    @Test
+    @DisplayName("Should alert an error as email is not in correct format")
+    public void editContactWithIncorrectEmail() {
+        openIndexAndClickEdit();
+
+        Faker faker = new Faker();
+        EditPage editPage = new EditPage(driver);
+
+        String name = faker.name().fullName();
+        String phone = "+5516993388338";
+        String email = name + ".com";
+
+
+        editPage.editContact(name, email, phone);
+
+        Alert alert = driver.switchTo().alert();
+        String alertText = alert.getText();
+        System.out.println(alertText);
+        alert.accept();
+
+        assertEquals("Email inválido!", alertText);
+    }
+
 }
