@@ -31,4 +31,32 @@ public class VerifyIndex {
         driver.quit();
         return false;
     }
+
+    public static Optional<Contact> getContactInfo(int id){
+        WebDriverManager.firefoxdriver().setup();
+        driver = new FirefoxDriver();
+
+        driver.get("http://127.0.0.1:5500/index.html");
+
+        String seletorCss = "#contacts .item#" + id;
+
+        WebElement item = driver.findElement(By.cssSelector(seletorCss));
+
+        if (item != null) {
+            WebElement nomeElement = item.findElement(By.tagName("span"));
+            WebElement emailElement = item.findElement(By.xpath(".//p[contains(text(),'Email')]"));
+            WebElement telefoneElement = item.findElement(By.xpath(".//p[contains(text(),'Telefone')]"));
+
+            String name = nomeElement.getText();
+            String email = emailElement.getText().replace("Email: ", "");
+            String phoneNumber = telefoneElement.getText().replace("Telefone: ", "");
+
+            System.out.println("Nome: " + name);
+            System.out.println("Email: " + email);
+            System.out.println("Telefone: " + phoneNumber);
+            return Optional.of(new Contact(name, email, phoneNumber));
+        }
+        driver.quit();
+        return Optional.empty();
+    }
 }
