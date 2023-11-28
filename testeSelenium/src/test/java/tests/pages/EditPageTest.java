@@ -119,28 +119,34 @@ public class EditPageTest {
             }
         }
     }
-    @Test
-    @DisplayName("Should alert an error as email is not in correct format")
-    public void editContactWithIncorrectEmailFormat() {
-        openIndexAndClickEdit();
 
-        Faker faker = new Faker();
-        EditPage editPage = new EditPage(driver);
+    @Nested
+    @DisplayName("Email Validation Tests")
+    class EmailValidationTests {
+        @Test
+        @DisplayName("Should alert an error as email is not in correct format")
+        public void editContactWithIncorrectEmailFormat() {
+            openIndexAndClickEdit();
 
-        String name = faker.name().fullName();
-        String phone = "+5516993388338";
-        String email = name + ".com";
+            Faker faker = new Faker();
+            EditPage editPage = new EditPage(driver);
+
+            String name = faker.name().fullName();
+            String phone = "+5516993388338";
+            String email = name + ".com";
 
 
-        editPage.editContact(name, email, phone);
+            editPage.editContact(name, email, phone);
 
-        Alert alert = driver.switchTo().alert();
-        String alertText = alert.getText();
-        System.out.println(alertText);
-        alert.accept();
+            Alert alert = driver.switchTo().alert();
+            String alertText = alert.getText();
+            System.out.println(alertText);
+            alert.accept();
 
-        assertEquals("Email inválido!", alertText);
+            assertEquals("Email inválido!", alertText);
+        }
     }
+
 
 
     @Test
