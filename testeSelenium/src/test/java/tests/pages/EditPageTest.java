@@ -6,10 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,6 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class EditPageTest {
     private WebDriver driver;
@@ -140,5 +138,31 @@ public class EditPageTest {
         alert.accept();
 
         assertEquals("Nome inválido!", alertText);
+    }
+
+    @Test
+    @DisplayName("Should alert an error as name field has invalid characters")
+    public void editContactWithInvalidCharactersName() {
+        openIndexAndClickEdit();
+
+        Faker faker = new Faker();
+        EditPage editPage = new EditPage(driver);
+
+        String name = "-**^%$$ d4%";
+        String phone = "+5516993388338";
+        String email = faker.internet().emailAddress();
+
+
+        editPage.editContact(name, email, phone);
+
+        try {
+            Alert alert = new WebDriverWait(driver, Duration.ofSeconds(5))
+                    .until(ExpectedConditions.alertIsPresent());
+            String alertText = alert.getText();
+            System.out.println(alertText);
+            alert.accept();
+        } catch (TimeoutException e) {
+            fail("The expected alert error message has not been displayed.");
+        }
     }
 }
