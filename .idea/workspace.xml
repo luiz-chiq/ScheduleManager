@@ -36,7 +36,7 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/laura/OneDrive/Documentos/Materiais da Faculdade/5º Semestre/TC1/ScheduleManager/testeSelenium&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.EditPageTest.editContactWithEmptyName">
+  <component name="RunManager" selected="JUnit.EditPageTest.editContactWithSpaceOnlyName">
     <configuration name="EditPageTest.editContactWithEmptyName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="testeSelenium" />
       <extension name="coverage">
@@ -85,6 +85,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EditPageTest.editContactWithSpaceOnlyName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="testeSelenium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.pages.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.pages" />
+      <option name="MAIN_CLASS_NAME" value="tests.pages.EditPageTest" />
+      <option name="METHOD_NAME" value="editContactWithSpaceOnlyName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RegisterPageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="testeSelenium" />
       <extension name="coverage">
@@ -100,29 +116,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterPageTest.registerContact" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="testeSelenium" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pages.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pages" />
-      <option name="MAIN_CLASS_NAME" value="pages.RegisterPageTest" />
-      <option name="METHOD_NAME" value="registerContact" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EditPageTest.editContactWithSpaceOnlyName" />
         <item itemvalue="JUnit.EditPageTest.editContactWithEmptyName" />
         <item itemvalue="JUnit.EditPageTest.editContactWithIncorrectPhoneFormat" />
         <item itemvalue="JUnit.EditPageTest.editContactWithIncorrectEmail" />
         <item itemvalue="JUnit.RegisterPageTest" />
-        <item itemvalue="JUnit.RegisterPageTest.registerContact" />
       </list>
     </recent_temporary>
   </component>

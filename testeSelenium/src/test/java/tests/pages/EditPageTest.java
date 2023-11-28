@@ -119,4 +119,26 @@ public class EditPageTest {
         assertEquals("Nome inválido!", alertText);
     }
 
+    @Test
+    @DisplayName("Should alert an error as name field is only space characters")
+    public void editContactWithSpaceOnlyName() {
+        openIndexAndClickEdit();
+
+        Faker faker = new Faker();
+        EditPage editPage = new EditPage(driver);
+
+        String name = "   ";
+        String phone = "+5516993388338";
+        String email = faker.internet().emailAddress();
+
+
+        editPage.editContact(name, email, phone);
+
+        Alert alert = driver.switchTo().alert();
+        String alertText = alert.getText();
+        System.out.println(alertText);
+        alert.accept();
+
+        assertEquals("Nome inválido!", alertText);
+    }
 }
