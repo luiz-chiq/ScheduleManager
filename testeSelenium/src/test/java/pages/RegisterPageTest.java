@@ -24,7 +24,7 @@ public class RegisterPageTest {
 
     @BeforeEach
     void setUp() {
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
     }
 
@@ -34,19 +34,9 @@ public class RegisterPageTest {
     }
 
     @Test
-    @DisplayName("Should open and close firefox browser")
-    void shouldOpenAndCloseChromeBrowser() throws InterruptedException {
-        WebDriverManager.firefoxdriver().setup();
-        WebDriver driver = new FirefoxDriver();
-        driver.get("https://scl.ifsp.edu.br");
-        Thread.sleep(1000);
-        driver.quit();
-    }
-
-    @Test
     @DisplayName("Should register a new contact with name, email and phone completed")
     public void registerContact() {
-        driver.get("http://127.0.0.1:5500/src/register.html");
+        driver.get("http://127.0.0.1:5500/register.html");
 
         Faker faker = new Faker();
 
@@ -71,7 +61,7 @@ public class RegisterPageTest {
     @Test
     @DisplayName("Should not register a new contact with name, email but no phone number")
     public void registerContactWithoutPhoneNumber() {
-        driver.get("http://127.0.0.1:5500/src/register.html");
+        driver.get("http://127.0.0.1:5500/register.html");
 
         Faker faker = new Faker();
 
@@ -96,7 +86,7 @@ public class RegisterPageTest {
     @Test
     @DisplayName("Should not register a new contact with a one letter name")
     public void registerContactWithOneLetterName() {
-        driver.get("http://127.0.0.1:5500/src/register.html");
+        driver.get("http://127.0.0.1:5500/register.html");
 
         Faker faker = new Faker();
 
