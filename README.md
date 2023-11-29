@@ -3,7 +3,7 @@
 
 1. Navegue até a pasta /src
   ```
-  cd /src
+  cd src
   ```
 2. Instale a dependencia http-server
   ```
