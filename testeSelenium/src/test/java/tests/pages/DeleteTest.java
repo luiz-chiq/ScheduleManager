@@ -15,6 +15,7 @@ import tests.VerifyIndex;
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class DeleteTest {
 
@@ -33,23 +34,17 @@ public class DeleteTest {
 
 
     @Test
-    @DisplayName("Should not register a new contact with name, email but no phone number")
-    public void registerContactWithoutPhoneNumber() {
+    @DisplayName("Should delete Josefa Pereira contact")
+    public void deleteContact() {
         driver.get("http://127.0.0.1:5500/index.html");
 
-
-
-//            String selector = String.format("#contacts # %s .del-btn", "4");
-//            WebElement deleteButton = driver.findElement(By.cssSelector(selector));
-//            new WebDriverWait(driver, Duration.ofSeconds(2))
-//                    .until(ExpectedConditions.alertIsPresent());
-//            deleteButton.click();
-//            Alert alert = driver.switchTo().alert();
-//            String alertText = alert.getText();
-//            System.out.println(alertText);
-//            alert.accept();
-//
-//            assertEquals("Telefone inválido!", alertText);
+        WebElement deleteButton = driver.findElement(By.xpath("//button[contains(text(), 'Deletar')]"));
+        deleteButton.click();
+        Alert alert = new WebDriverWait(driver, Duration.ofSeconds(3))
+                .until(ExpectedConditions.alertIsPresent());
+        String alertText = alert.getText();
+        alert.accept();
+        assertEquals(alertText, "Tem certeza que quer deletar o contato de Josefa Pereira");
 
     }
 
