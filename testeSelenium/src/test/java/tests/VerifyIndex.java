@@ -59,4 +59,18 @@ public class VerifyIndex {
         driver.quit();
         return Optional.empty();
     }
+
+    public static String getFirstContactName() {
+        WebDriverManager.firefoxdriver().setup();
+        driver = new FirefoxDriver();
+
+        driver.get("http://127.0.0.1:5500/index.html");
+
+        WebElement div = driver.findElement(By.className("item"));
+
+        WebElement nomeElement = div.findElement(By.tagName("span"));
+        String contactNme = nomeElement.getText();
+        driver.quit();
+        return contactNme;
+    }
 }
